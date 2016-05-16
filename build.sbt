@@ -23,6 +23,11 @@ assemblyMergeStrategy in assembly := {
   case other => MergeStrategy.defaultMergeStrategy(other)
 }
 
+enablePlugins(JavaAppPackaging)
+enablePlugins(DockerPlugin)
+
+dockerExposedPorts := Seq(8888, 9990)
+
 libraryDependencies ++= Seq(
   "com.twitter.finatra" %% "finatra-http" % versions.finatra,
   "com.twitter.finatra" %% "finatra-httpclient" % versions.finatra,
